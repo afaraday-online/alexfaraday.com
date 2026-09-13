@@ -57,12 +57,12 @@
     /* ── HEADER ── */
     .site-header {
       text-align: center;
-      padding: 1.5rem 0 0.1rem;
+      padding: 2.5rem 0 0;
     }
 
     .site-header img {
       width: 100%;
-      max-width: 200px;
+      max-width: 170px;
       margin: 0 auto;
       display: block;
       mix-blend-mode: multiply;
@@ -70,20 +70,21 @@
 
     .byline {
       font-family: var(--ff-body);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.14em;
       color: var(--brown-mid);
       text-align: center;
-      margin-top: 0.3rem;
-      margin-bottom: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     /* ── HERO IMAGE ── */
     .hero-img {
-      width: 100%;
-      aspect-ratio: 3/4;
+      width: 90%;
+      margin: 0 auto 1.5rem;
+      aspect-ratio: 4/5;
       object-fit: cover;
-      object-position: center center;
+      object-position: center 40%;
       display: block;
       border-radius: 2px;
     }
@@ -91,24 +92,24 @@
     /* ── INTRO ── */
     .intro {
       text-align: center;
-      padding: 2rem 0 0.5rem;
+      padding: 0.5rem 0 0;
     }
 
     .intro h1 {
       font-family: var(--ff-display);
       font-style: italic;
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       font-weight: 400;
       color: var(--espresso);
       line-height: 1.1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
     .intro .role {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       color: var(--brown-mid);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.1rem;
     }
 
     .intro p {
@@ -118,6 +119,8 @@
       margin-bottom: 0.75rem;
     }
 
+    .intro p:last-child { margin-bottom: 0; }
+
     .intro p strong { color: var(--espresso); font-weight: 500; }
     .intro p em { font-style: italic; color: var(--terra); }
 
@@ -126,7 +129,7 @@
       width: 40px;
       height: 1px;
       background: var(--blush);
-      margin: 2rem auto;
+      margin: 1.25rem auto;
     }
 
     /* ── ACCORDION ── */
@@ -135,7 +138,7 @@
       letter-spacing: 0.18em;
       color: var(--brown-mid);
       text-align: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.75rem;
       display: block;
     }
 
@@ -229,7 +232,7 @@
     .panel-inner img {
       width: 100%;
       border-radius: 2px;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       display: block;
     }
 
@@ -245,6 +248,9 @@
       aspect-ratio: 1/1;
       object-fit: cover;
       object-position: top;
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .panel-date {
@@ -255,7 +261,7 @@
       color: var(--espresso);
       padding: 0.25rem 0.75rem;
       border-radius: 50px;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1.1rem;
     }
 
     .panel-date.olive {
@@ -352,7 +358,7 @@
       border: 1px solid var(--blush);
       padding: 0.25rem 0.75rem;
       border-radius: 50px;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1.1rem;
     }
 
     /* ── ABOUT ── */
@@ -361,7 +367,7 @@
       border-radius: 2px;
       padding: 2rem 1.5rem;
       text-align: center;
-      margin-top: 0;
+      margin-top: 1rem;
     }
 
     .about-section img {
@@ -369,8 +375,8 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center center;
-      transform: scale(1.0);
+      object-position: center 40%;
+      transform: scale(1.04);
       display: block;
       margin: 0 auto 1.25rem;
       border: 3px solid var(--sand);
@@ -436,7 +442,7 @@
   <div class="intro">
     <h1>Hi, I'm Alex</h1>
     <p class="role">space holder · retreat leader · the human behind Root To Rise</p>
-    <p>I create <strong>safe, sacred spaces for women to be fully, unapologetically themselves</strong> — through cacao circles & retreats, both online & in person.</p>
+    <p>Through cacao circles & retreats, I create <strong>safe, sacred spaces for women to be fully, unapologetically themselves.</strong></p>
     <p>For the women who are ready to lean into their 'weird', and remember that all the wisdom they need, <em>comes from within.</em></p>
   </div>
 
@@ -457,7 +463,7 @@
       </button>
       <div class="accordion-panel">
         <div class="panel-inner">
-          <img src="girlhood.png" alt="Girlhood UK" class="zoomed" style="margin-bottom: 1.75rem;" />
+          <img src="girlhood.png" alt="Girlhood UK" class="zoomed" style="margin-bottom: 1rem;" />
           <span class="panel-date">30 Oct – 1 Nov · British Countryside</span>
           <h2>Girlhood UK</h2>
           <p class="panel-tagline">The 2-night women's retreat for the quirky girls who never quite fit in.</p>
@@ -507,7 +513,7 @@
       </button>
       <div class="accordion-panel">
         <div class="panel-inner">
-          <img src="pause.jpg" alt="The Pause" style="margin-bottom: 1.75rem;" />
+          <img src="pause.jpg" alt="The Pause" style="margin-bottom: 1rem;" />
           <span class="collab-tag">✦ in collaboration with Francesca Secolonovo</span>
           <span class="panel-date terra">Sunday 6th December · London</span>
           <h2>The Pause</h2>
@@ -536,7 +542,7 @@
       </button>
       <div class="accordion-panel">
         <div class="panel-inner">
-          <img src="abroad.webp" alt="Girlhood Abroad" style="margin-bottom: 1.75rem;" />
+          <img src="abroad.webp" alt="Girlhood Abroad" style="margin-bottom: 1rem;" />
           <span class="panel-date terra">27–31 May 2027 · Catalan Vineyards</span>
           <h2>Girlhood Abroad</h2>
           <p class="panel-tagline">The 4-night Spanish villa retreat for the 'young, wild & free' women.</p>
@@ -574,14 +580,14 @@
 
   </div><!-- /accordion -->
 
-  <div class="divider" style="margin-top: 3rem;"></div>
+  <div class="divider" style="margin-top: 2rem; margin-bottom: 2rem;"></div>
 
   <!-- ABOUT -->
   <div class="about-section">
     <img src="hero_cropped.jpg" alt="Alex Faraday" />
     <h2>Hi, I'm Alex</h2>
-    <p>I'm not a master, a teacher, or someone who is here to instruct you or "heal" you. <strong>I'm here to sit alongside you, guide you, and be a part of your journey.</strong></p>
-    <p>The freedom to be your full, true self & find safety in sisterhood is something that so many of us didn't have growing up — <strong>and these two pillars are at the heart of everything I create.</strong></p>
+    <p>I'm not a master, a teacher, or someone who is here to instruct you or "heal" you. I'm here to sit alongside you, guide you, and be a part of your journey.</p>
+    <p>The freedom to be your full, true self & find safety in sisterhood is something that so many of us are needing, <strong>and these two pillars are at the heart of everything I create.</strong></p>
     <a href="https://www.instagram.com/_root_to_rise/" target="_blank" class="btn" style="background: var(--espresso); margin-top: 1.25rem;">@_root_to_rise on Instagram</a>
   </div>
 
