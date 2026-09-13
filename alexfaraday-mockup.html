@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Faraday | Root To Rise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand:       #F5EDE0;
+      --sand-deep:  #EDE3D5;
+      --parchment:  #FAF6F0;
+      --espresso:   #2C1F16;
+      --brown-mid:  #7A5C48;
+      --terra:      #B85C38;
+      --olive:      #6B7A4A;
+      --blush:      #E8C4B0;
+      --ff-display: 'Fraunces', serif;
+      --ff-body:    'DM Sans', sans-serif;
+      --max:        560px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--sand);
+      color: var(--espresso);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      text-align: center;
+      padding: 1.1rem 1rem 0.75rem;
+      border-bottom: 1px solid var(--blush);
+    }
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--terra); }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      text-align: center;
+      padding: 1.5rem 0 0.1rem;
+    }
+
+    .site-header img {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .byline {
+      font-family: var(--ff-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--brown-mid);
+      text-align: center;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ── HERO IMAGE ── */
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      text-align: center;
+      padding: 2rem 0 0.5rem;
+    }
+
+    .intro h1 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro .role {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--brown-mid);
+      margin-bottom: 1.25rem;
+    }
+
+    .intro p {
+      font-size: 0.95rem;
+      color: var(--brown-mid);
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .intro p strong { color: var(--espresso); font-weight: 500; }
+    .intro p em { font-style: italic; color: var(--terra); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--blush);
+      margin: 2rem auto;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--brown-mid);
+      text-align: center;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .accordion {
+      border-top: 1px solid var(--sand-deep);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--sand-deep);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-align: left;
+      gap: 1rem;
+    }
+
+    .accordion-trigger:hover .trigger-name { color: var(--terra); }
+
+    .trigger-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .trigger-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--brown-mid);
+    }
+
+    .trigger-name {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .trigger-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terra);
+      font-size: 1rem;
+      font-weight: 300;
+      transition: all 0.25s;
+      font-family: var(--ff-body);
+    }
+
+    .accordion-item.open .trigger-icon {
+      background: var(--terra);
+      border-color: var(--terra);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .accordion-item.open .trigger-name {
+      color: var(--terra);
+    }
+
+    /* ── ACCORDION PANEL ── */
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-item.open .accordion-panel {
+      max-height: 3000px;
+    }
+
+    .panel-inner {
+      padding-bottom: 2rem;
+    }
+
+    .panel-inner img {
+      width: 100%;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .panel-inner img.zoomed {
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: 62% center;
+      transform: scale(1.1);
+      transform-origin: center;
+    }
+
+    .panel-inner img.square {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .panel-date {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      background: var(--blush);
+      color: var(--espresso);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      margin-bottom: 0.9rem;
+    }
+
+    .panel-date.olive {
+      background: var(--olive);
+      color: white;
+    }
+
+    .panel-date.terra {
+      background: var(--terra);
+      color: white;
+    }
+
+    .panel-inner h2 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .panel-tagline {
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--brown-mid);
+      margin-bottom: 1rem;
+      line-height: 1.65;
+    }
+
+    .panel-inner p {
+      font-size: 0.92rem;
+      color: var(--brown-mid);
+      line-height: 1.8;
+      margin-bottom: 0.85rem;
+    }
+
+    .panel-inner p strong { color: var(--espresso); font-weight: 500; }
+    .panel-inner p em { font-style: italic; }
+
+    .emoji-list {
+      list-style: none;
+      margin: 0.5rem 0 1.25rem;
+    }
+
+    .emoji-list li {
+      font-size: 0.9rem;
+      color: var(--brown-mid);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--sand-deep);
+    }
+
+    .emoji-list li:last-child { border-bottom: none; }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0.95rem 1.5rem;
+      background: var(--espresso);
+      color: var(--sand);
+      font-family: var(--ff-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 2px;
+      transition: background 0.2s;
+      margin-top: 1.25rem;
+    }
+
+    .btn:hover { background: var(--terra); }
+
+    .btn-terra {
+      background: var(--terra);
+    }
+
+    .btn-terra:hover { background: #a04e2e; }
+
+    .btn-olive {
+      background: var(--olive);
+    }
+
+    .btn-olive:hover { background: #556038; }
+
+    /* ── COLLAB TAG ── */
+    .collab-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--terra);
+      border: 1px solid var(--blush);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      margin-bottom: 0.9rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--blush);
+      border-radius: 2px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .about-section img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.0);
+      display: block;
+      margin: 0 auto 1.25rem;
+      border: 3px solid var(--sand);
+    }
+
+    .about-section h2 {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--espresso);
+      margin-bottom: 0.75rem;
+    }
+
+    .about-section p {
+      font-size: 0.88rem;
+      color: var(--espresso);
+      line-height: 1.8;
+      opacity: 0.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-section p strong { opacity: 1; font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      border-top: 1px solid var(--blush);
+      margin-top: 3rem;
+    }
+
+    footer p, footer a {
+      font-size: 0.72rem;
+      color: var(--brown-mid);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--terra); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 480px) {
+      .intro h1 { font-size: 2.2rem; }
+      .trigger-name { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.instagram.com/_root_to_rise/" target="_blank">@_root_to_rise</a>
+</nav>
+
+<div class="page">
+
+  <div class="site-header">
+    <img src="logo.png" alt="Root To Rise" />
+  </div>
+  <p class="byline">by Alex Faraday</p>
+
+  <img class="hero-img" src="hero.jpg" alt="Alex Faraday" />
+
+  <div class="intro">
+    <h1>Hi, I'm Alex</h1>
+    <p class="role">space holder · retreat leader · the human behind Root To Rise</p>
+    <p>I create <strong>safe, sacred spaces for women to be fully, unapologetically themselves</strong> — through cacao circles & retreats, both online & in person.</p>
+    <p>For the women who are ready to lean into their 'weird', and remember that all the wisdom they need, <em>comes from within.</em></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <span class="accordion-label">offerings</span>
+
+  <div class="accordion" id="accordion">
+
+    <!-- GIRLHOOD UK -->
+    <div class="accordion-item" id="item-girlhood">
+      <button class="accordion-trigger" onclick="toggle('girlhood')">
+        <div class="trigger-left">
+          <span class="trigger-type">retreat · uk · october 2026</span>
+          <span class="trigger-name">Girlhood UK</span>
+        </div>
+        <div class="trigger-icon">+</div>
+      </button>
+      <div class="accordion-panel">
+        <div class="panel-inner">
+          <img src="girlhood.png" alt="Girlhood UK" class="zoomed" style="margin-bottom: 1.75rem;" />
+          <span class="panel-date">30 Oct – 1 Nov · British Countryside</span>
+          <h2>Girlhood UK</h2>
+          <p class="panel-tagline">The 2-night women's retreat for the quirky girls who never quite fit in.</p>
+          <p>A 16th-century cottage in the British countryside. Halloween weekend. A small group of us 'quirky' girls — <strong>connecting, laughing, and being f*cking weird together.</strong></p>
+          <ul class="emoji-list">
+            <li>🕯️ cacao circles</li>
+            <li>🍂 frolicking in nature</li>
+            <li>🍳 chaotic kitchen energy</li>
+            <li>🫂 actually being <strong>seen & understood</strong></li>
+            <li>🕸️ witchy women doing witchy sh*t</li>
+          </ul>
+          <p><strong>Only 3 spaces left.</strong></p>
+          <a href="https://subscribepage.io/jwA8Dn" class="btn">This is what I've been waiting for</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE RITUAL -->
+    <div class="accordion-item" id="item-ritual">
+      <button class="accordion-trigger" onclick="toggle('ritual')">
+        <div class="trigger-left">
+          <span class="trigger-type">online circle · worldwide</span>
+          <span class="trigger-name">The Ritual</span>
+        </div>
+        <div class="trigger-icon">+</div>
+      </button>
+      <div class="accordion-panel">
+        <div class="panel-inner">
+          <img src="ritual.jpeg" alt="The Ritual" class="square" />
+          <span class="panel-date olive">26 Jul · 27 Sept · 29 Nov</span>
+          <h2>The Ritual</h2>
+          <p class="panel-tagline">an online cacao ceremony — to find stillness, reconnect inwards, and sit in sacred sisterhood.</p>
+          <p>Once every couple of months, women from across the world gather for a <strong>slow Sunday morning together.</strong> Mama Cacao, likeminded women, and you — exactly as you are.</p>
+          <a href="https://subscribepage.io/rnlpnt" class="btn btn-olive">Join The Ritual</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE PAUSE (COLLAB) -->
+    <div class="accordion-item" id="item-pause">
+      <button class="accordion-trigger" onclick="toggle('pause')">
+        <div class="trigger-left">
+          <span class="trigger-type">day retreat · london · december 2026</span>
+          <span class="trigger-name">The Pause</span>
+        </div>
+        <div class="trigger-icon">+</div>
+      </button>
+      <div class="accordion-panel">
+        <div class="panel-inner">
+          <img src="pause.jpg" alt="The Pause" style="margin-bottom: 1.75rem;" />
+          <span class="collab-tag">✦ in collaboration with Francesca Secolonovo</span>
+          <span class="panel-date terra">Sunday 6th December · London</span>
+          <h2>The Pause</h2>
+          <p class="panel-tagline">A day to step away from the noise and return to yourself.</p>
+          <p>Through movement, breath, cacao, authentic connection, Reiki, Yin and sound — a space to step out of the noise, drop into the body and reconnect with something deeper within.</p>
+          <p><em>Winter is our time to slow down, listen a little deeper and remember the part of you that can so easily get lost in the doing.</em></p>
+          <p>Come exactly as you are. Leave feeling a little lighter.</p>
+          <ul class="emoji-list">
+            <li>🕙 10am – 5pm</li>
+            <li>📍 Luv Yourself Studio, London E16</li>
+            <li>🎟 £127</li>
+          </ul>
+          <a href="https://www.francescasecolonovowellness.com/gather" target="_blank" class="btn btn-terra">I'm in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIRLHOOD ABROAD -->
+    <div class="accordion-item" id="item-abroad">
+      <button class="accordion-trigger" onclick="toggle('abroad')">
+        <div class="trigger-left">
+          <span class="trigger-type">retreat · barcelona · may 2027</span>
+          <span class="trigger-name">Girlhood Abroad</span>
+        </div>
+        <div class="trigger-icon">+</div>
+      </button>
+      <div class="accordion-panel">
+        <div class="panel-inner">
+          <img src="abroad.webp" alt="Girlhood Abroad" style="margin-bottom: 1.75rem;" />
+          <span class="panel-date terra">27–31 May 2027 · Catalan Vineyards</span>
+          <h2>Girlhood Abroad</h2>
+          <p class="panel-tagline">The 4-night Spanish villa retreat for the 'young, wild & free' women.</p>
+          <p>An 18th-century luxury eco-farm villa in the middle of the Catalan vineyards. For the 'wildling-turned-holistic' women who want to <strong>heal, dance & belly laugh together.</strong></p>
+          <ul class="emoji-list">
+            <li>🌸 cacao circles, yoga & somatic dance</li>
+            <li>🧜‍♀️ poolside lounging & laughter</li>
+            <li>🍳 chaotic kitchen energy</li>
+            <li>🌈 letting your guard down for real</li>
+          </ul>
+          <p><strong>Only 12 spaces.</strong></p>
+          <a href="https://alex-faraday-8nwl1w.subscribepage.io" class="btn btn-terra">I need this</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREEBIES -->
+    <div class="accordion-item" id="item-free">
+      <button class="accordion-trigger" onclick="toggle('free')">
+        <div class="trigger-left">
+          <span class="trigger-type">free · no strings attached</span>
+          <span class="trigger-name">New here?</span>
+        </div>
+        <div class="trigger-icon">+</div>
+      </button>
+      <div class="accordion-panel">
+        <div class="panel-inner">
+          <h2>Start here.</h2>
+          <p class="panel-tagline">A taste of my work, before you commit to anything.</p>
+          <p>A relaxing <strong>guided meditation</strong> & a <strong>17-page ceremonial cacao guide</strong> — free, forever yours.</p>
+          <a href="https://alex-faraday-lsb0dz.subscribepage.io" class="btn btn-olive">Get the free stuff</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion -->
+
+  <div class="divider" style="margin-top: 3rem;"></div>
+
+  <!-- ABOUT -->
+  <div class="about-section">
+    <img src="hero_cropped.jpg" alt="Alex Faraday" />
+    <h2>Hi, I'm Alex</h2>
+    <p>I'm not a master, a teacher, or someone who is here to instruct you or "heal" you. <strong>I'm here to sit alongside you, guide you, and be a part of your journey.</strong></p>
+    <p>The freedom to be your full, true self & find safety in sisterhood is something that so many of us didn't have growing up — <strong>and these two pillars are at the heart of everything I create.</strong></p>
+    <a href="https://www.instagram.com/_root_to_rise/" target="_blank" class="btn" style="background: var(--espresso); margin-top: 1.25rem;">@_root_to_rise on Instagram</a>
+  </div>
+
+</div><!-- /page -->
+
+<footer>
+  <p>© 2026 Alex Faraday · Root To Rise &nbsp;·&nbsp; <a href="https://www.instagram.com/_root_to_rise/" target="_blank">@_root_to_rise</a></p>
+</footer>
+
+<script>
+  function toggle(id) {
+    const item = document.getElementById('item-' + id);
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+
+    // Open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      setTimeout(() => {
+        item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+  }
+</script>
+
+</body>
+</html>
