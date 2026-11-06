@@ -400,34 +400,35 @@
       gap: 3rem;
       justify-items: center;
     }
-    .taped {
+    .about-moon {
       position: relative;
-      transform: rotate(-3deg);
+      width: min(280px, 68vw);
+      aspect-ratio: 1;
+      isolation: isolate;
     }
-    .taped img {
-      width: min(260px, 66vw);
-      aspect-ratio: 32 / 42;
-      border-radius: 999px;
+    .about-moon > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center 28%;
     }
-    .taped::before {
-      content: "";
+    .about-moon .moon {
       position: absolute;
-      z-index: 1;
-      top: -14px;
-      left: 50%;
-      width: 110px;
-      height: 28px;
-      margin-left: -55px;
-      background: var(--sand);
-      opacity: .85;
-      transform: rotate(-4deg);
+      z-index: -1;
+      width: 130%;
+      height: 130%;
+      left: -34%;
+      top: -6%;
+      fill: var(--terra);
+      transform: rotate(-30deg);
     }
-    .taped .star-deco {
+    .about-moon .star-deco {
       position: absolute;
-      right: -26px;
-      top: 22px;
+      right: -6%;
+      top: 4%;
       width: 20px;
       height: 20px;
       color: var(--sand);
@@ -440,7 +441,7 @@
     @media (min-width: 820px) {
       .about { padding: 0 1.25rem; }
       .about-inner { grid-template-columns: auto 1fr; gap: 5rem; padding: 4.5rem 5rem; justify-items: start; align-items: center; }
-      .taped img { width: 300px; }
+      .about-moon { width: 300px; }
     }
 
     footer {
@@ -634,12 +635,13 @@
 
   <section class="about" aria-labelledby="about-title">
     <div class="about-inner">
-      <div class="taped">
+      <div class="about-moon">
+        <svg class="moon" aria-hidden="true"><use href="#crescent"/></svg>
         <img src="about-web.jpg" alt="alex faraday" />
         <svg class="star-deco star" aria-hidden="true"><use href="#star"/></svg>
       </div>
       <div class="about-text">
-        <h2 id="about-title">a little about me</h2>
+        <h2 id="about-title">hi, i'm alex</h2>
         <p>i'm not a master, a teacher, or someone who is here to instruct you or "heal" you. i'm here to sit alongside you, guide you, and be a part of your journey.</p>
         <p>the freedom to be your full, true self &amp; find safety in sisterhood is something that so many of us are needing, <strong>and these two pillars are at the heart of everything i create.</strong></p>
         <a href="https://www.instagram.com/alexfaraday_/" target="_blank" rel="noopener" class="btn">say hi on instagram</a>
@@ -658,7 +660,7 @@
 <dialog class="reading" id="reading-girls" aria-labelledby="t-girls">
   <div class="reading-body">
     <button class="reading-close" type="button" aria-label="close"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 2l12 12M14 2L2 14"/></svg></button>
-    <img src="girlhood.png" alt="women dancing in a kitchen with fairy lights" />
+    <img src="girlcode.jpg" alt="women painting pottery together around a long table" />
     <span class="pill">online + in person community</span>
     <h3 id="t-girls">girl code</h3>
     <p class="tagline">the group chat you wish you had.</p>
@@ -687,10 +689,9 @@
     <span class="pill">february 2027 · london · date tbc</span>
     <h3 id="t-pause">the pause</h3>
     <p class="tagline">a day to step away from the noise and return to yourself.</p>
-    <p>through movement, breath, cacao, authentic connection, reiki, yin and sound, a space to step out of the noise, drop into the body and reconnect with something deeper within.</p>
+    <p>through cacao, movement, authentic connection, yin and sound - a space to step out of the noise and reconnect with what's within.</p>
     <p>winter is our time to slow down, listen a little deeper and remember the part of you that can so easily get lost in the doing.</p>
-    <p>come exactly as you are. leave feeling a little lighter.</p>
-    <a href="https://www.francescasecolonovowellness.com/gather" target="_blank" rel="noopener" class="btn">i'm in</a>
+    <a href="https://www.francescasecolonovowellness.com/gather" target="_blank" rel="noopener" class="btn">this is what i need</a>
   </div>
 </dialog>
 
@@ -709,7 +710,7 @@
       <li>🌈 letting your guard down for real</li>
     </ul>
     <p><strong>only 12 spaces.</strong></p>
-    <a href="https://joingirlcode.com/retreat.html" class="btn">i need this</a>
+    <a href="https://joingirlcode.com/retreat.html" class="btn">this is for me</a>
   </div>
 </dialog>
 
