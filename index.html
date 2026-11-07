@@ -12,12 +12,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap" rel="stylesheet" />
   <style>
-    /* ibiza: whitewash walls, island blue, terracotta pots, bougainvillea pink, blush, scallops */
+    /* boutique ibiza, green mood: whitewash, olive + sage, terracotta accents, bougainvillea pink, blush, soft scallops */
     :root {
       --wash:    #FFF8EF;
       --ink:     #2C1F16;
-      --main:    #2B5FB4;
-      --band:    #2B5FB4;
+      --main:    #56703F;
+      --band:    #56703F;
+      --sage:    #A9BB8E;
       --band-head: #F2C6B6;
       --band-text: rgba(255,248,239,.9);
       --terra:   #B85C38;
@@ -101,7 +102,7 @@
       overflow-x: clip;
       position: relative;
     }
-    .hero h1 { font-weight: 400; font-size: clamp(3.6rem, 12.5vw, 6.4rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--main); margin-bottom: 1rem; }
+    .hero h1 { font-weight: 400; font-size: clamp(3.8rem, 13vw, 7.2rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--main); margin-bottom: 1rem; }
     .hero .role {
       font: italic 400 clamp(0.95rem, 3.6vw, 1.15rem)/1.4 var(--ff-display);
       font-variation-settings: "SOFT" 50, "WONK" 0;
@@ -114,7 +115,7 @@
     .for-women { list-style: none; display: grid; gap: 0.55rem; margin-bottom: 1.4rem; }
     .for-women li {
       display: flex; gap: 0.75rem; align-items: baseline;
-      font: 400 clamp(1.45rem, 4.4vw, 2.05rem)/1.15 var(--ff-display);
+      font: 400 clamp(1.55rem, 4.2vw, 2.35rem)/1.1 var(--ff-display);
       font-variation-settings: "SOFT" 50, "WONK" 0;
       color: var(--main);
       opacity: 0; transform: translateY(12px);
@@ -123,12 +124,12 @@
     .for-women li:nth-child(1) { animation-delay: .3s; }
     .for-women li:nth-child(2) { animation-delay: 1s; }
     .for-women li:nth-child(3) { animation-delay: 1.7s; }
-    .for-women svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--terra); transform: translateY(-3px); }
+    .for-women svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--terra); transform: translateY(-6px); }
     .promise {
-      font: italic 400 clamp(1.15rem, 3.4vw, 1.4rem)/1.35 var(--ff-display);
+      font: italic 400 clamp(1.4rem, 3.8vw, 2rem)/1.2 var(--ff-display);
       font-variation-settings: "SOFT" 50, "WONK" 0;
       color: var(--pink);
-      max-width: 28rem;
+      max-width: 26ch;
       opacity: 0; animation: rise .8s var(--ease) 2.5s forwards;
     }
     @keyframes rise { to { opacity: 1; transform: none; } }
@@ -138,7 +139,7 @@
 
     .moon-portrait { position: relative; width: min(330px, 72vw); aspect-ratio: 1; justify-self: center; isolation: isolate; }
     .moon-portrait > img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 35%; }
-    .moon-portrait .moon { position: absolute; z-index: -1; width: 130%; height: 130%; left: -34%; top: -6%; fill: var(--terra); transform: rotate(-30deg); }
+    .moon-portrait .moon { position: absolute; z-index: -1; width: 130%; height: 130%; left: -34%; top: -6%; fill: var(--sage); transform: rotate(-30deg); }
     .moon-portrait::before {
       content: ""; position: absolute; z-index: -2;
       width: 58%; aspect-ratio: 1; right: -12%; top: -10%;
@@ -157,7 +158,7 @@
     @keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(.4) rotate(45deg); opacity: .45; } }
 
     @media (min-width: 900px) {
-      .hero { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4.5rem; padding-top: 3rem; padding-bottom: 6rem; }
+      .hero { grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr); gap: 3.5rem; padding-top: 3rem; padding-bottom: 6rem; }
       .moon-portrait { width: 100%; max-width: 430px; }
     }
 
@@ -335,7 +336,7 @@
     }
     .about-moon { position: relative; width: min(280px, 68vw); aspect-ratio: 1; isolation: isolate; }
     .about-moon > img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 28%; }
-    .about-moon .moon { position: absolute; z-index: -1; width: 130%; height: 130%; left: -34%; top: -6%; fill: var(--terra); transform: rotate(-30deg); }
+    .about-moon .moon { position: absolute; z-index: -1; width: 130%; height: 130%; left: -34%; top: -6%; fill: var(--sage); transform: rotate(-30deg); }
     .about-moon::before { content: ""; position: absolute; z-index: -2; width: 62%; aspect-ratio: 1; right: -12%; top: -10%; border-radius: 50%; background: var(--blush); }
     .about-moon .star-deco { position: absolute; right: -6%; top: 4%; width: 20px; height: 20px; color: var(--pink); }
     .about-text { max-width: 33rem; }
@@ -639,7 +640,7 @@
   // little sparkles wherever you tap
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!calm) {
-    var colours = ['#B85C38', '#E2508F', '#2B5FB4', '#F2C6B6'];
+    var colours = ['#B85C38', '#E2508F', '#56703F', '#F2C6B6'];
     document.addEventListener('pointerdown', function (e) {
       for (var i = 0; i < 5; i++) {
         var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

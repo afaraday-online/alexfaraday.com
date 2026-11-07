@@ -11,12 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&display=swap" rel="stylesheet" />
   <style>
-    /* boutique ibiza, green mood: whitewash, olive + sage, terracotta accents, soft scallops */
+    /* boutique ibiza, blue mood: whitewash, island blue + sky, terracotta accents, soft scallops */
     :root {
       --wash:   #FFF8EF;
       --ink:    #2C1F16;
-      --cobalt: #56703F;
-      --sage:   #A9BB8E;
+      --cobalt: #2B5FB4;
+      --sage:   #BCD1EE;
       --deep:   #B83A72;
       --sun:    #F5C95C;
       --pink:   #E2508F;
@@ -238,6 +238,9 @@
     .gift-line div { color: var(--muted); }
     .gift-line b { display: block; font: 500 1.35rem/1.15 var(--ff-display); font-variation-settings: "SOFT" 50, "WONK" 0; color: var(--ink); }
 
+    .claim { margin-top: 1.8rem; display: grid; gap: 0.8rem; }
+    .btn--soft { background: var(--cobalt); }
+    .btn--soft:hover { background: #224C91; }
     .sign { margin-top: 1.8rem; }
     .line-field { display: block; margin-bottom: 1.3rem; }
     .line-field span { display: block; font-size: 0.88rem; font-weight: 700; }
@@ -373,22 +376,13 @@
             <p>two gifts, free and forever yours:</p>
             <div class="gift-line"><span class="dot"><svg class="star"><use href="#star"/></svg></span><div><b>the grounding</b>a guided meditation to get you out of your head and back into your body. come back to it whenever you need.</div></div>
             <div class="gift-line"><span class="dot"><svg class="star"><use href="#star"/></svg></span><div><b>the cacao spirit</b>my guide to working with ceremonial cacao and preparing for ceremony.</div></div>
-            <p>sign below and i'll send them straight to your inbox.</p>
+            <p>tap a gift to claim it. it's free, and it'll land straight in your inbox.</p>
           </div>
 
-          <form class="sign" data-ml="free">
-            <label class="line-field"><span>sign your name</span><input class="signature" id="f-name" name="fields[name]" autocomplete="given-name" required /></label>
-            <label class="line-field"><span>your email</span><input id="f-email" type="email" name="fields[email]" autocomplete="email" required /></label>
-            <label class="consent"><input id="f-consent" type="checkbox" required /> i'm happy to get emails from alex</label>
-            <button class="btn btn--full" type="submit">seal it, i'm in</button>
-            <p class="form-error" role="alert">that didn't go through. check your email address and try again.</p>
+          <div class="claim">
+            <a class="btn btn--full" href="https://checkout.mailerlite.com/checkout/30840" target="_blank" rel="noopener">claim the grounding</a>
+            <a class="btn btn--full btn--soft" href="https://checkout.mailerlite.com/checkout/30791" target="_blank" rel="noopener">claim the cacao spirit</a>
             <p class="from">alex x</p>
-          </form>
-
-          <div class="form-done" aria-live="polite">
-            <img class="stamp" src="favicon.svg" alt="" />
-            <h2 class="funky">welcome, <span data-name-out>lovely</span>.</h2>
-            <p>you're in. check your inbox, your gifts are waiting for you.</p>
           </div>
         </div>
       </article>
@@ -459,7 +453,7 @@
   })();
 
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var colours = ['#1F4FA8', '#F4B23E', '#EC6A9C', '#B85C38'];
+    var colours = ['#2B5FB4', '#F2C6B6', '#E2508F', '#B85C38'];
     document.addEventListener('pointerdown', function (e) {
       for (var i = 0; i < 6; i++) {
         var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

@@ -9,12 +9,12 @@
 window.AF_MAILERLITE = {
   account: '1223322',
   forms: {
-    ritual: '',   // "get future date reminders" on the ritual page
-    free:   '',   // free meditation + cacao guide
-    join:   ''    // the inner circle newsletter
+    ritual: '203517122569045693',   // "get future date reminders" -> THE RITUAL DATE REMINDER group
+    free:   '',   // not used: the free gifts page links straight to the two product checkouts
+    join:   '203517348352624519'    // the inner circle newsletter -> ALL SUBSCRIBERS group
   },
   links: {
-    ritualCheckout: '',
+    ritualCheckout: 'https://checkout.mailerlite.com/checkout/36202',
     ritualFallback: 'https://rnlpnt.subscribepage.io/',
     freeFallback:   'https://alex-faraday-lsb0dz.subscribepage.io/',
     joinFallback:   'https://lxd0qa.subscribepage.io/'
