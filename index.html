@@ -10,181 +10,177 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap" rel="stylesheet" />
   <style>
+    /* ibiza: whitewash walls, island blue, terracotta pots, bougainvillea pink, blush, scallops */
     :root {
-      --sand:       #F5EDE0;
-      --sand-deep:  #EBDFCC;
-      --paper:      #FBF6EE;
-      --espresso:   #2C1F16;
-      --brown-mid:  #74563F;
-      --terra:      #B85C38;
+      --wash:    #FFF8EF;
+      --ink:     #2C1F16;
+      --main:    #2B5FB4;
+      --band:    #2B5FB4;
+      --band-head: #F2C6B6;
+      --band-text: rgba(255,248,239,.9);
+      --terra:   #B85C38;
       --terra-deep: #A24C2B;
-      --olive:      #6B7A4A;
-      --olive-deep: #55623A;
-      --blush:      #E8C4B0;
+      --pink:    #E2508F;
+      --blush:   #F2C6B6;
+      --muted:   #5B4636;
+      --gingham: rgba(184,92,56,.32);
       --ff-display: 'Fraunces', Georgia, serif;
       --ff-body:    'DM Sans', system-ui, sans-serif;
       --ease:       cubic-bezier(.2, .8, .2, 1);
+      color-scheme: light;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
-    body {
-      font-family: var(--ff-body);
-      background: var(--sand);
-      color: var(--espresso);
-      font-size: 16px;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
+    body { font: 400 16px/1.65 var(--ff-body); background: var(--wash); color: var(--ink); overflow-x: hidden; }
 
     /* lowercase everywhere */
     body, body * { text-transform: lowercase !important; }
 
     img { display: block; max-width: 100%; }
     a { color: inherit; }
-
-    :focus-visible {
-      outline: 2px solid var(--terra-deep);
-      outline-offset: 4px;
-      border-radius: 6px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0.85rem 1.9rem;
-      border-radius: 999px;
-      background: var(--terra-deep);
-      color: var(--sand);
-      font: 500 1rem/1.2 var(--ff-body);
-      text-decoration: none;
-      transition: transform .25s var(--ease);
-    }
-    .btn:hover { transform: translateY(-2px) rotate(-1deg); }
-    .btn--olive { background: var(--olive-deep); }
-
+    :focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; border-radius: 8px; }
     .star { fill: currentColor; }
 
-    /* ── TOP BAR ── */
+    h1, h2, h3, .card-name, .tagline {
+      font-family: var(--ff-display);
+      font-variation-settings: "SOFT" 50, "WONK" 0;
+      font-weight: 400;
+      text-wrap: balance;
+    }
+
+    .gingham {
+      height: 34px;
+      background:
+        linear-gradient(90deg, var(--gingham) 50%, transparent 0) 0 0 / 34px 34px,
+        linear-gradient(var(--gingham) 50%, transparent 0) 0 0 / 34px 34px,
+        var(--wash);
+    }
+
+    /* buttons: soft retro stickers */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 54px; padding: 0.85rem 2rem;
+      border: 0; border-radius: 999px;
+      background: var(--terra); color: var(--wash);
+      box-shadow: none;
+      letter-spacing: 0.01em;
+      font: 500 1.02rem/1.2 var(--ff-body);
+      text-decoration: none; cursor: pointer;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--terra-deep); }
+    .btn:active { transform: translateY(1px); }
+    .btn--olive { background: var(--terra); }
+
+    /* ── scalloped edge ── */
+    .awning {
+      height: 46px;
+      background: var(--terra);
+      -webkit-mask: linear-gradient(#000 0 0) top / 100% 28px no-repeat, radial-gradient(circle 18px at 50% 0, #000 98%, #0000) 0 28px / 36px 18px repeat-x;
+              mask: linear-gradient(#000 0 0) top / 100% 28px no-repeat, radial-gradient(circle 18px at 50% 0, #000 98%, #0000) 0 28px / 36px 18px repeat-x;
+    }
+
+    /* ── top bar ── */
     .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.1rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto;
+      padding: 1rem max(1.25rem, env(safe-area-inset-right, 0px)) 1rem max(1.25rem, env(safe-area-inset-left, 0px));
     }
-    .topbar-home img { width: 44px; height: 44px; }
-    .topbar-ig {
-      font-size: 0.95rem;
-      color: var(--espresso);
-      text-decoration: none;
-      padding: 0.5rem 0;
-    }
-    .topbar-ig:hover { color: var(--terra-deep); }
+    .topbar-home img { width: 46px; height: 46px; }
+    .topbar-ig { font-weight: 500; text-decoration: none; padding: 0.5rem 0; }
+    .topbar-ig:hover { color: var(--main); }
 
-    /* ── HERO ── */
+    /* ── hero ── */
     .hero {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 1200px; margin: 0 auto;
       padding: 1.5rem 1.25rem 4.5rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.75rem;
-      align-items: center;
+      display: grid; gap: 3rem; align-items: center;
       overflow-x: clip;
-    }
-    .hero h1 {
-      font: 300 clamp(3.1rem, 11vw, 5rem)/0.95 var(--ff-display);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .hero-hi {
-      font: italic 400 clamp(1.6rem, 5vw, 1.9rem)/1.1 var(--ff-display);
-      color: var(--terra-deep);
-      margin-bottom: 0.6rem;
-    }
-    .hero .role { font-size: 0.95rem; color: var(--brown-mid); margin-bottom: 1.25rem; }
-    .hero-copy p.body { font-size: 1.06rem; color: var(--brown-mid); margin-bottom: 0.9rem; max-width: 30rem; }
-    .hero-copy strong { color: var(--espresso); font-weight: 500; }
-
-    .moon-portrait {
       position: relative;
-      width: min(340px, 74vw);
-      aspect-ratio: 1;
-      justify-self: center;
-      isolation: isolate;
     }
-    .moon-portrait > img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 35%;
+    .hero h1 { font-weight: 400; font-size: clamp(3.6rem, 12.5vw, 6.4rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--main); margin-bottom: 1rem; }
+    .hero .role {
+      font: italic 400 clamp(0.95rem, 3.6vw, 1.15rem)/1.4 var(--ff-display);
+      font-variation-settings: "SOFT" 50, "WONK" 0;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      margin-bottom: 1.6rem;
     }
-    .moon-portrait .moon {
-      position: absolute;
-      z-index: -1;
-      width: 130%;
-      height: 130%;
-      left: -34%;
-      top: -6%;
-      fill: var(--terra);
-      transform: rotate(-30deg);
+
+    .hero .lede { font-size: 1.02rem; color: var(--muted); margin-bottom: 0.9rem; }
+    .for-women { list-style: none; display: grid; gap: 0.55rem; margin-bottom: 1.4rem; }
+    .for-women li {
+      display: flex; gap: 0.75rem; align-items: baseline;
+      font: 400 clamp(1.45rem, 4.4vw, 2.05rem)/1.15 var(--ff-display);
+      font-variation-settings: "SOFT" 50, "WONK" 0;
+      color: var(--main);
+      opacity: 0; transform: translateY(12px);
+      animation: rise .8s var(--ease) forwards;
     }
-    .twinkle {
-      position: absolute;
-      color: var(--espresso);
-      animation: twinkle 3.4s ease-in-out infinite;
+    .for-women li:nth-child(1) { animation-delay: .3s; }
+    .for-women li:nth-child(2) { animation-delay: 1s; }
+    .for-women li:nth-child(3) { animation-delay: 1.7s; }
+    .for-women svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--terra); transform: translateY(-3px); }
+    .promise {
+      font: italic 400 clamp(1.15rem, 3.4vw, 1.4rem)/1.35 var(--ff-display);
+      font-variation-settings: "SOFT" 50, "WONK" 0;
+      color: var(--pink);
+      max-width: 28rem;
+      opacity: 0; animation: rise .8s var(--ease) 2.5s forwards;
     }
-    .twinkle--a { right: -3%; top: 4%; width: 24px; height: 24px; }
-    .twinkle--b { right: -10%; top: 28%; width: 13px; height: 13px; color: var(--terra-deep); animation-delay: 1.2s; }
-    .twinkle--c { right: 8%; bottom: -2%; width: 16px; height: 16px; animation-delay: 2.1s; }
-    @keyframes twinkle {
-      0%, 100% { transform: scale(1) rotate(0); opacity: 1; }
-      50%      { transform: scale(.45) rotate(45deg); opacity: .5; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .for-women li, .promise { opacity: 1; transform: none; } }
+    .hero-copy p.body { font-size: 1.08rem; color: var(--muted); margin-bottom: 0.9rem; max-width: 31rem; }
+    .hero-copy strong { color: var(--ink); font-weight: 500; }
+
+    .moon-portrait { position: relative; width: min(330px, 72vw); aspect-ratio: 1; justify-self: center; isolation: isolate; }
+    .moon-portrait > img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 35%; }
+    .moon-portrait .moon { position: absolute; z-index: -1; width: 130%; height: 130%; left: -34%; top: -6%; fill: var(--terra); transform: rotate(-30deg); }
+    .moon-portrait::before {
+      content: ""; position: absolute; z-index: -2;
+      width: 58%; aspect-ratio: 1; right: -12%; top: -10%;
+      border-radius: 50%; background: var(--blush);
     }
+    .twinkle { position: absolute; color: var(--terra); animation: twinkle 3.6s ease-in-out infinite; }
+    .twinkle--a { right: -4%; top: 30%; width: 22px; height: 22px; color: var(--pink); }
+    .twinkle--b { right: -12%; top: 52%; width: 12px; height: 12px; animation-delay: 1.2s; color: var(--main); }
+    .twinkle--c { right: 10%; bottom: -3%; width: 16px; height: 16px; animation-delay: 2.1s; }
+    .dust { position: absolute; inset: 0; pointer-events: none; }
+    .dust svg { position: absolute; color: var(--terra); animation: twinkle 3.6s ease-in-out infinite; }
+    .dust svg:nth-child(1) { left: 34%; top: 8%;  width: 13px; height: 13px; }
+    .dust svg:nth-child(2) { left: 6%;  top: 86%; width: 9px;  height: 9px;  animation-delay: .8s; color: var(--pink); }
+    .dust svg:nth-child(3) { left: 44%; top: 70%; width: 11px; height: 11px; animation-delay: 1.6s; color: var(--main); }
+    .dust svg:nth-child(4) { left: 52%; top: 22%; width: 7px;  height: 7px;  animation-delay: 2.3s; color: var(--pink); }
+    @keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(.4) rotate(45deg); opacity: .45; } }
 
     @media (min-width: 900px) {
-      .hero {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 4rem;
-        padding-top: 3rem;
-        padding-bottom: 6rem;
-      }
-      .moon-portrait { width: 100%; max-width: 440px; }
+      .hero { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4.5rem; padding-top: 3rem; padding-bottom: 6rem; }
+      .moon-portrait { width: 100%; max-width: 430px; }
     }
 
-    /* ── DECK ── */
-    .deck-section { padding: 1rem 0 5rem; }
-    .deck-head {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      column-gap: 1.25rem;
-      row-gap: 0.25rem;
+    /* ── deck ── */
+    .deck-section { position: relative; background: var(--band); padding: 4rem 0 3.5rem; margin: 16px 0 70px; }
+    .deck-section::before, .deck-section::after {
+      content: ""; position: absolute; left: 0; right: 0; height: 26px;
+      height: 16px;
+      background: radial-gradient(ellipse 50% 100% at 50% 0, var(--band) 98%, #0000) 0 0 / 120px 16px repeat-x;
     }
-    .deck-head h2 { font: 300 clamp(2.6rem, 8vw, 3.75rem)/1 var(--ff-display); letter-spacing: -0.01em; }
-    .deck-head p { color: var(--brown-mid); }
+    .deck-section::before { top: -15px; transform: scaleY(-1); }
+    .deck-section::after { bottom: -15px; }
+    .deck-head {
+      max-width: 1200px; margin: 0 auto; padding: 0 1.25rem;
+      display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1.25rem; row-gap: 0.25rem;
+    }
+    .deck-head h2 { font-weight: 400; font-style: italic; font-size: clamp(2.8rem, 8vw, 4rem); line-height: 1; color: var(--band-head); }
+    .deck-head p { color: var(--band-text); }
 
     .deck {
-      list-style: none;
-      display: flex;
-      gap: 1.25rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 2.25rem 1.25rem 2rem;
-      scrollbar-width: none;
+      list-style: none; display: flex; gap: 1.25rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 2.25rem 1.25rem 2rem; scrollbar-width: none;
     }
     .deck::-webkit-scrollbar { display: none; }
     .deck li { flex: 0 0 min(70vw, 260px); scroll-snap-align: center; }
@@ -192,73 +188,37 @@
     .deck li:nth-child(2) .card { --tilt: 2deg; --lift: 8px; }
     .deck li:nth-child(3) .card { --tilt: -1.5deg; }
     .deck li:nth-child(4) .card { --tilt: 3deg; --lift: 6px; }
-
     @media (min-width: 1100px) {
       .deck { justify-content: center; overflow: visible; gap: 1.75rem; }
       .deck li { flex: 0 0 250px; }
     }
 
     .card {
-      --tilt: 0deg;
-      --lift: 0px;
-      display: block;
-      width: 100%;
-      aspect-ratio: 5 / 8;
-      padding: 0;
-      border: 0;
-      background: none;
-      font: inherit;
-      color: inherit;
-      cursor: pointer;
+      --tilt: 0deg; --lift: 0px;
+      display: block; width: 100%; aspect-ratio: 5 / 8;
+      padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer;
       perspective: 1200px;
       transform: rotate(var(--tilt)) translateY(var(--lift));
       transition: transform .4s var(--ease);
-      border-radius: 18px;
+      border-radius: 20px;
     }
     .card:hover { transform: rotate(0deg) translateY(-10px); }
-    .card:focus-visible { outline-offset: 8px; border-radius: 18px; }
-
-    .card-inner {
-      display: block;
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform .75s var(--ease);
-    }
+    .card:focus-visible { outline-offset: 8px; border-radius: 20px; }
+    .card-inner { display: block; position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .75s var(--ease); }
     .card.is-flipped .card-inner { transform: rotateY(180deg); }
 
     .face {
-      display: block;
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 18px;
-      padding: 10px;
-      box-shadow: 0 1px 0 rgba(44,31,22,.12), 0 16px 30px -18px rgba(44,31,22,.55);
+      display: block; position: absolute; inset: 0;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: 20px; padding: 10px;
+      box-shadow: 0 22px 34px -20px rgba(20,25,40,.55);
     }
-    .face-frame {
-      position: relative;
-      height: 100%;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    .face-frame { position: relative; height: 100%; border-radius: 11px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 
-    /* face down */
-    .face--back { background: var(--terra-deep); color: var(--blush); }
-    .face--back .face-frame { border: 1px solid var(--blush); justify-content: center; }
-    .back-mark {
-      width: 50%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: var(--sand);
-      display: grid;
-      place-items: center;
-    }
+    /* face down: terracotta with blush fairy dust */
+    .face--back { background: var(--wash); color: var(--terra); }
+    .face--back .face-frame { border: 1px solid var(--main); justify-content: center; }
+    .back-mark { width: 52%; aspect-ratio: 1; border-radius: 50%; background: var(--blush); display: grid; place-items: center; }
     .back-mark img { width: 72%; }
     .back-star { position: absolute; }
     .back-star:nth-of-type(1) { left: 11%; top: 8%;  width: 12px; height: 12px; }
@@ -268,117 +228,97 @@
     .back-star:nth-of-type(5) { left: 13%; bottom: 13%; width: 9px;  height: 9px; }
     .back-star:nth-of-type(6) { right: 30%; bottom: 8%;  width: 6px;  height: 6px; }
 
-    /* face up */
-    .face--front { background: var(--blush); color: var(--espresso); transform: rotateY(180deg); }
-    .face--front .face-frame { border: 1px solid var(--terra-deep); padding: 1.3rem 0.9rem 1rem; gap: 0.5rem; }
-    .phase { width: 38px; height: 38px; flex-shrink: 0; }
-    .front-star { position: absolute; color: var(--sand); }
-    .fs1 { left: 10%; top: 19%; width: 9px;  height: 9px; }
-    .fs2 { right: 11%; top: 29%; width: 12px; height: 12px; }
-    .fs3 { left: 14%; top: 50%; width: 7px;  height: 7px; }
-    .glyph { width: 52%; aspect-ratio: 1; margin-top: 0.6rem; }
-    .card-name { font: 400 1.7rem/1.05 var(--ff-display); margin-top: auto; }
-    .card-name--long { font-size: 1.3rem; }
-    .card-meta { font-size: 0.86rem; line-height: 1.35; }
-    .card-more {
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    /* face up: whitewash in a terracotta gingham frame */
+    .face--front {
+      transform: rotateY(180deg);
+      color: var(--ink);
+      background: var(--blush);
     }
+    .face--front .face-frame { background: var(--wash); border: 1px solid var(--main); padding: 1.3rem 0.9rem 1rem; gap: 0.5rem; }
+    .phase { width: 38px; height: 38px; flex-shrink: 0; color: var(--main); }
+    .front-star { position: absolute; color: var(--pink); }
+    .fs1 { left: 10%; top: 19%; width: 9px;  height: 9px; }
+    .fs2 { right: 11%; top: 29%; width: 12px; height: 12px; color: var(--terra); }
+    .fs3 { left: 14%; top: 50%; width: 7px;  height: 7px; }
+    .glyph { width: 52%; aspect-ratio: 1; margin-top: 0.6rem; color: var(--main); }
+    .card-name { font-weight: 400; font-size: 1.75rem; line-height: 1.05; margin-top: auto; color: var(--main); }
+    .card-name--long { font-size: 1.3rem; }
+    .card-meta { font-size: 0.86rem; line-height: 1.35; color: var(--muted); }
+    .card-more { margin-top: 0.4rem; font-size: 0.82rem; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
 
-    /* ── READINGS (card details) ── */
+    /* ── readings (card details) ── */
     .reading {
       margin: auto;
       width: min(560px, calc(100vw - 1.5rem));
       max-height: calc(100dvh - 2rem);
       border: 0;
       border-radius: 24px;
-      padding: 12px;
-      background: var(--terra-deep);
-      color: var(--espresso);
+      padding: 10px;
+      color: var(--ink);
+      background: var(--blush);
     }
     .reading[open] { animation: draw .55s var(--ease); }
-    @keyframes draw {
-      from { transform: perspective(900px) rotateY(70deg) scale(.88); opacity: 0; }
-      to   { transform: none; opacity: 1; }
-    }
+    @keyframes draw { from { transform: perspective(900px) rotateY(70deg) scale(.88); opacity: 0; } to { transform: none; opacity: 1; } }
     .reading::backdrop { background: rgba(44,31,22,.5); backdrop-filter: blur(3px); }
     .reading-body {
-      background: var(--paper);
+      background: var(--wash);
       border-radius: 14px;
-      max-height: calc(100dvh - 2rem - 24px);
+      max-height: calc(100dvh - 2rem - 28px);
       overflow-y: auto;
       padding: 1.5rem 1.4rem 1.75rem;
     }
     .reading-close {
-      position: sticky;
-      top: 0;
-      float: right;
-      z-index: 2;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      position: sticky; top: 0; float: right; z-index: 2;
+      width: 44px; height: 44px; border-radius: 50%;
       border: 0;
-      background: var(--terra-deep);
-      color: var(--sand);
-      cursor: pointer;
-      display: grid;
-      place-items: center;
+      background: var(--terra); color: var(--wash);
+      cursor: pointer; display: grid; place-items: center;
       margin: -0.4rem -0.4rem 0 0.5rem;
     }
     .reading-close svg { width: 16px; height: 16px; }
     .reading img { width: 100%; border-radius: 12px; margin-bottom: 1.2rem; clear: both; }
     .reading img.square { aspect-ratio: 1 / 1; object-fit: cover; object-position: center 30%; }
     .pill {
-      display: inline-block;
-      font-size: 0.85rem;
-      padding: 0.25rem 0.85rem;
-      border-radius: 999px;
+      display: inline-block; font-size: 0.85rem; font-weight: 500;
+      padding: 0.25rem 0.85rem; border-radius: 999px;
       margin: 0 0.35rem 0.9rem 0;
-      background: var(--blush);
-      color: var(--espresso);
+      background: var(--blush); color: var(--ink);
+      border: 0;
     }
-    .pill--line { background: none; box-shadow: inset 0 0 0 1px var(--terra); color: var(--terra-deep); }
-    .reading h3 { font: 300 2.3rem/1.05 var(--ff-display); margin-bottom: 0.5rem; }
-    .reading .tagline { font: italic 400 1.2rem/1.35 var(--ff-display); color: var(--terra-deep); margin-bottom: 1rem; }
-    .reading p { color: var(--brown-mid); margin-bottom: 0.85rem; }
-    .reading p strong { color: var(--espresso); font-weight: 500; }
+    .pill--line { background: none; color: var(--terra-deep); box-shadow: inset 0 0 0 1px var(--terra); }
+    .reading h3 { font-weight: 400; font-size: 2.3rem; line-height: 1.05; color: var(--main); margin-bottom: 0.5rem; }
+    .reading .tagline { font-style: italic; font-weight: 400; font-size: 1.25rem; line-height: 1.35; color: var(--pink); margin-bottom: 1rem; }
+    .reading p { color: var(--muted); margin-bottom: 0.85rem; }
+    .reading p strong { color: var(--ink); font-weight: 500; }
     .reading ul { list-style: none; margin: 0.25rem 0 1.25rem; }
-    .reading li { padding: 0.45rem 0; border-bottom: 1px solid var(--sand-deep); color: var(--brown-mid); }
+    .reading li { padding: 0.45rem 0; border-bottom: 1px solid var(--blush); color: var(--muted); }
     .reading li:last-child { border-bottom: 0; }
     .reading .btn { margin-top: 0.75rem; width: 100%; }
 
-    /* ── FREEBIE ── */
+    /* ── freebie: a terracotta band ── */
+    .freebie-band { position: relative; background: var(--blush); color: var(--ink); margin: 16px 0; }
+    .freebie-band::before, .freebie-band::after {
+      content: ""; position: absolute; left: 0; right: 0; height: 26px;
+      height: 16px;
+      background: radial-gradient(ellipse 50% 100% at 50% 0, var(--blush) 98%, #0000) 0 0 / 120px 16px repeat-x;
+    }
+    .freebie-band::before { top: -15px; transform: scaleY(-1); }
+    .freebie-band::after { bottom: -15px; }
+
     .freebie {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem 5.5rem;
-      display: grid;
-      justify-items: center;
-      gap: 2rem;
-      text-align: center;
+      max-width: 1000px; margin: 0 auto;
+      padding: 4rem 1.25rem 4.5rem;
+      display: grid; justify-items: center; gap: 2rem; text-align: center;
     }
     .badge { position: relative; width: 230px; height: 230px; }
-    .badge-ring { width: 100%; height: 100%; animation: spin 26s linear infinite; }
-    .badge-ring text { font: 500 15px var(--ff-body); fill: var(--espresso); letter-spacing: 0.06em; }
-    .badge-mark {
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 118px;
-      height: 118px;
-      border-radius: 50%;
-      background: var(--blush);
-      display: grid;
-      place-items: center;
-    }
+    .badge-ring { width: 100%; height: 100%; animation: spin 30s linear infinite; }
+    .badge-ring text { font: 500 15px var(--ff-body); fill: var(--main); letter-spacing: 0.06em; }
+    .badge-mark { position: absolute; inset: 0; margin: auto; width: 118px; height: 118px; border-radius: 50%; background: var(--wash); display: grid; place-items: center; }
     .badge-mark img { width: 84px; }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .freebie h2 { font: 300 clamp(2.4rem, 7vw, 3.5rem)/1 var(--ff-display); margin-bottom: 0.75rem; }
-    .freebie p { color: var(--brown-mid); max-width: 30rem; margin: 0 auto 0.6rem; font-size: 1.05rem; }
-    .freebie p strong { color: var(--espresso); font-weight: 500; }
+    .freebie h2 { font-weight: 400; font-size: clamp(2.4rem, 7vw, 3.5rem); line-height: 1; margin-bottom: 0.75rem; color: var(--main); }
+    .freebie p { color: var(--muted); max-width: 30rem; margin: 0 auto 0.6rem; font-size: 1.05rem; }
+    .freebie p strong { color: var(--ink); font-weight: 500; }
     .freebie .btn { margin-top: 1rem; }
     @media (min-width: 760px) {
       .freebie { grid-template-columns: auto 1fr; text-align: left; gap: 3.5rem; align-items: center; }
@@ -386,84 +326,36 @@
       .badge { width: 270px; height: 270px; }
     }
 
-    /* ── ABOUT ── */
-    .about {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 0.75rem;
-    }
+    /* ── about ── */
+    .about { max-width: 1200px; margin: 0 auto; padding: 4.5rem 0.75rem 0; }
     .about-inner {
-      background: var(--blush);
-      border-radius: 36px;
-      padding: 3.5rem 1.5rem 3rem;
-      display: grid;
-      gap: 3rem;
-      justify-items: center;
-    }
-    .about-moon {
       position: relative;
-      width: min(280px, 68vw);
-      aspect-ratio: 1;
-      isolation: isolate;
+      padding: 1rem 0.5rem 1rem;
+      display: grid; gap: 3rem; justify-items: center;
     }
-    .about-moon > img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 28%;
-    }
-    .about-moon .moon {
-      position: absolute;
-      z-index: -1;
-      width: 130%;
-      height: 130%;
-      left: -34%;
-      top: -6%;
-      fill: var(--terra);
-      transform: rotate(-30deg);
-    }
-    .about-moon .star-deco {
-      position: absolute;
-      right: -6%;
-      top: 4%;
-      width: 20px;
-      height: 20px;
-      color: var(--sand);
-    }
+    .about-moon { position: relative; width: min(280px, 68vw); aspect-ratio: 1; isolation: isolate; }
+    .about-moon > img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 28%; }
+    .about-moon .moon { position: absolute; z-index: -1; width: 130%; height: 130%; left: -34%; top: -6%; fill: var(--terra); transform: rotate(-30deg); }
+    .about-moon::before { content: ""; position: absolute; z-index: -2; width: 62%; aspect-ratio: 1; right: -12%; top: -10%; border-radius: 50%; background: var(--blush); }
+    .about-moon .star-deco { position: absolute; right: -6%; top: 4%; width: 20px; height: 20px; color: var(--pink); }
     .about-text { max-width: 33rem; }
-    .about h2 { font: 300 clamp(2.4rem, 7vw, 3.3rem)/1 var(--ff-display); margin-bottom: 1rem; }
-    .about p { font-size: 1.05rem; margin-bottom: 0.9rem; }
+    .about h2 { font-weight: 400; font-size: clamp(2.4rem, 7vw, 3.4rem); line-height: 1; color: var(--main); margin-bottom: 1rem; }
+    .about p { font-size: 1.06rem; margin-bottom: 0.9rem; }
     .about p strong { font-weight: 500; }
     .about .btn { margin-top: 0.5rem; }
     @media (min-width: 820px) {
-      .about { padding: 0 1.25rem; }
-      .about-inner { grid-template-columns: auto 1fr; gap: 5rem; padding: 4.5rem 5rem; justify-items: start; align-items: center; }
+      .about { padding: 5rem 1.25rem 0; }
+      .about-inner { grid-template-columns: auto 1fr; gap: 5rem; padding: 2rem 3rem; justify-items: start; align-items: center; }
       .about-moon { width: 300px; }
     }
 
-    footer {
-      padding: 3rem 1.25rem 3.5rem;
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--brown-mid);
-    }
-    footer img { width: 56px; margin: 0 auto 0.75rem; }
-    footer a { color: var(--terra-deep); text-decoration: none; }
+    footer { padding: 3rem 1.25rem 3.5rem; text-align: center; font-size: 0.95rem; color: var(--muted); }
+    footer img { width: 54px; margin: 0 auto 0.75rem; }
+    footer a { color: var(--main); font-weight: 500; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* ── TAP SPARKLES ── */
-    .spark {
-      position: fixed;
-      width: 16px;
-      height: 16px;
-      margin: -8px 0 0 -8px;
-      pointer-events: none;
-      z-index: 1000;
-      animation: spark .9s var(--ease) forwards;
-    }
+    /* ── tap sparkles ── */
+    .spark { position: fixed; width: 18px; height: 18px; margin: -9px 0 0 -9px; pointer-events: none; z-index: 1000; animation: spark .9s var(--ease) forwards; }
     @keyframes spark {
       0%   { transform: translate(0,0) scale(.2) rotate(0); opacity: 1; }
       70%  { opacity: 1; }
@@ -495,11 +387,17 @@
 <main id="top">
 
   <section class="hero">
+    <div class="dust" aria-hidden="true"><svg class="star"><use href="#star"/></svg><svg class="star"><use href="#star"/></svg><svg class="star"><use href="#star"/></svg><svg class="star"><use href="#star"/></svg></div>
     <div class="hero-copy">
       <h1>alex faraday</h1>
       <p class="role">space holder · retreat leader · community builder</p>
-      <p class="body">through cacao circles &amp; retreats, i create <strong>safe, sacred spaces for women to be fully, unapologetically themselves.</strong></p>
-      <p class="body">for the women who are done pretending they're not weirdly human, and are ready to lean right in. and the women who know all the wisdom they need, comes from within.</p>
+      <p class="lede">cacao circles &amp; retreats for the women who…</p>
+      <ul class="for-women">
+        <li><svg class="star" aria-hidden="true"><use href="#star"/></svg>are done pretending they're not weirdly human</li>
+        <li><svg class="star" aria-hidden="true"><use href="#star"/></svg>are ready to lean right in</li>
+        <li><svg class="star" aria-hidden="true"><use href="#star"/></svg>know all the wisdom they need comes from within</li>
+      </ul>
+      <p class="promise">safe, sacred spaces to be fully, unapologetically yourself.</p>
     </div>
     <div class="moon-portrait">
       <svg class="moon" aria-hidden="true"><use href="#crescent"/></svg>
@@ -512,7 +410,7 @@
 
   <section class="deck-section" aria-labelledby="deck-title">
     <div class="deck-head">
-      <h2 id="deck-title">pick a card</h2>
+      <h2 id="deck-title">pick your offering</h2>
       <p>tap a card to turn it over</p>
     </div>
 
@@ -530,7 +428,7 @@
             </span>
             <span class="face face--front">
               <span class="face-frame">
-                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#A24C2B" stroke-width="1.4"/></svg>
+                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
                 <svg class="front-star fs1 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs2 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs3 star" aria-hidden="true"><use href="#star"/></svg>
                 <svg class="glyph" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="44" cy="86" r="11"/><circle cx="75" cy="90" r="10"/><path d="M44 75C46 58 54 44 62 30M75 80C72 62 66 46 62 30"/><path d="M62 30C70 22 84 22 90 28 82 36 70 36 62 30Z"/></svg>
                 <span class="card-name">girl code</span>
@@ -554,7 +452,7 @@
             </span>
             <span class="face face--front">
               <span class="face-frame">
-                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#A24C2B" stroke-width="1.4"/><path d="M20 2A18 18 0 0 1 20 38 9 18 0 0 0 20 2Z" fill="#A24C2B"/></svg>
+                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 2A18 18 0 0 1 20 38 9 18 0 0 0 20 2Z" fill="currentColor"/></svg>
                 <svg class="front-star fs1 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs2 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs3 star" aria-hidden="true"><use href="#star"/></svg>
                 <svg class="glyph" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M34 60H86V72C86 88 74 96 60 96 46 96 34 88 34 72Z"/><path d="M86 64C99 64 99 83 86 81"/><path d="M26 104H94"/><path d="M50 50C44 42 56 36 50 26M62 50C56 40 68 34 62 22M74 50C68 42 80 36 74 28"/></svg>
                 <span class="card-name">the ritual</span>
@@ -578,7 +476,7 @@
             </span>
             <span class="face face--front">
               <span class="face-frame">
-                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#A24C2B" stroke-width="1.4"/><path d="M20 2A18 18 0 0 1 20 38Z" fill="#A24C2B"/></svg>
+                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 2A18 18 0 0 1 20 38Z" fill="currentColor"/></svg>
                 <svg class="front-star fs1 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs2 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs3 star" aria-hidden="true"><use href="#star"/></svg>
                 <svg class="glyph" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M50 72H70V106H50Z"/><path d="M60 52C67 58 67 65 60 68 53 65 53 58 60 52Z"/><path d="M60 46C50 38 70 30 60 20 53 13 63 8 58 4"/><path d="M40 106H80"/></svg>
                 <span class="card-name">the pause</span>
@@ -602,7 +500,7 @@
             </span>
             <span class="face face--front">
               <span class="face-frame">
-                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#A24C2B"/></svg>
+                <svg class="phase" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="currentColor"/></svg>
                 <svg class="front-star fs1 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs2 star" aria-hidden="true"><use href="#star"/></svg><svg class="front-star fs3 star" aria-hidden="true"><use href="#star"/></svg>
                 <svg class="glyph" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M38 70A22 22 0 0 1 82 70"/><path d="M60 40V30M38 48 31 41M82 48 89 41M28 64H19M92 64H101"/><path d="M12 82C30 72 48 74 62 80 76 72 94 70 108 78"/><path d="M20 96C40 88 76 88 100 96M28 108C46 102 74 102 92 108"/></svg>
                 <span class="card-name card-name--long">the girl code retreat: barcelona</span>
@@ -617,6 +515,7 @@
     </ul>
   </section>
 
+  <div class="freebie-band">
   <section class="freebie" aria-labelledby="free-title">
     <div class="badge" aria-hidden="true">
       <svg class="badge-ring" viewBox="0 0 270 270">
@@ -628,10 +527,11 @@
     <div>
       <h2 id="free-title">new here? start here.</h2>
       <p>a gift to welcome you into my world.</p>
-      <p>a relaxing <strong>guided meditation</strong> &amp; a <strong>17-page ceremonial cacao guide</strong>, free and forever yours.</p>
-      <a href="https://alex-faraday-lsb0dz.subscribepage.io" class="btn btn--olive">get the free stuff</a>
+      <p>a relaxing <strong>guided meditation</strong> &amp; a <strong>ceremonial cacao guide</strong>, free and forever yours.</p>
+      <a href="free.html" class="btn">get the free stuff</a>
     </div>
   </section>
+  </div>
 
   <section class="about" aria-labelledby="about-title">
     <div class="about-inner">
@@ -653,6 +553,7 @@
 
 <footer>
   <img src="alex-faraday-symbol.svg" alt="" />
+  <p><a href="join.html">join the inner circle</a></p>
   <p>© 2026 alex faraday &nbsp;·&nbsp; <a href="https://www.instagram.com/alexfaraday_/" target="_blank" rel="noopener">@alexfaraday_</a></p>
 </footer>
 
@@ -677,7 +578,7 @@
     <h3 id="t-ritual">the ritual</h3>
     <p class="tagline">an online cacao ceremony, to find stillness, reconnect inwards, and sit in sacred sisterhood.</p>
     <p>once every couple of months, women from across the world gather for a <strong>slow sunday morning together.</strong> mama cacao, likeminded women, and you, exactly as you are.</p>
-    <a href="https://subscribepage.io/rnlpnt" class="btn btn--olive">join the ritual</a>
+    <a href="ritual.html" class="btn">join the ritual</a>
   </div>
 </dialog>
 
@@ -704,7 +605,7 @@
     <p class="tagline">the 4-night spanish villa retreat for the 'young, wild &amp; free' women.</p>
     <p>an 18th-century luxury eco-farm villa in the middle of the catalan vineyards. for the 'wildling-turned-holistic' women who want to <strong>heal, dance &amp; belly laugh together.</strong></p>
     <ul>
-      <li>🌸 cacao circles, yoga &amp; somatic dance</li>
+      <li>🕯️ cacao, yoga &amp; somatic dance</li>
       <li>🧜‍♀️ poolside lounging &amp; laughter</li>
       <li>🍳 chaotic kitchen energy</li>
       <li>🌈 letting your guard down for real</li>
@@ -738,7 +639,7 @@
   // little sparkles wherever you tap
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!calm) {
-    var colours = ['#B85C38', '#E8C4B0', '#6B7A4A', '#A24C2B'];
+    var colours = ['#B85C38', '#E2508F', '#2B5FB4', '#F2C6B6'];
     document.addEventListener('pointerdown', function (e) {
       for (var i = 0; i < 5; i++) {
         var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
