@@ -4,7 +4,7 @@
   forms:  the mailerlite form or landing page id each page sends sign-ups to.
           leave blank and the button sends people to the old mailerlite page instead.
           more than one id? separate them with commas.
-  links:  where the ritual "book" button goes (the mailerlite checkout for the product).
+  links:  where the ritual "book" button goes (the stripe payment link).
 */
 window.AF_MAILERLITE = {
   account: '1223322',
@@ -14,7 +14,7 @@ window.AF_MAILERLITE = {
     join:   '203517348352624519'    // the inner circle newsletter -> ALL SUBSCRIBERS group
   },
   links: {
-    ritualCheckout: 'https://checkout.mailerlite.com/checkout/36202',
+    ritualCheckout: 'https://book.stripe.com/14A14mbkicZd4uI6iW2Fa0j',
     ritualFallback: 'https://rnlpnt.subscribepage.io/',
     freeFallback:   'https://alex-faraday-lsb0dz.subscribepage.io/',
     joinFallback:   'https://lxd0qa.subscribepage.io/'

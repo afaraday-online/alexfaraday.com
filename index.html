@@ -12,13 +12,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap" rel="stylesheet" />
   <style>
-    /* boutique ibiza, green mood: whitewash, olive + sage, terracotta accents, bougainvillea pink, blush, soft scallops */
+    /* boutique ibiza, blue mood: whitewash, island blue + sky, terracotta accents, bougainvillea pink, blush, soft scallops */
     :root {
       --wash:    #FFF8EF;
       --ink:     #2C1F16;
-      --main:    #56703F;
-      --band:    #56703F;
-      --sage:    #A9BB8E;
+      --main:    #2B5FB4;
+      --band:    #2B5FB4;
+      --sage:    #BCD1EE;
       --band-head: #F2C6B6;
       --band-text: rgba(255,248,239,.9);
       --terra:   #B85C38;
@@ -640,7 +640,7 @@
   // little sparkles wherever you tap
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!calm) {
-    var colours = ['#B85C38', '#E2508F', '#56703F', '#F2C6B6'];
+    var colours = ['#B85C38', '#E2508F', '#2B5FB4', '#F2C6B6'];
     document.addEventListener('pointerdown', function (e) {
       for (var i = 0; i < 5; i++) {
         var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
