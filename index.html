@@ -372,10 +372,21 @@
     .moon-portrait, .about-moon { aspect-ratio: 3 / 4 !important; isolation: isolate; }
     .moon-portrait, .about-moon { width: min(280px, 70vw) !important; max-width: none !important; }
     @media (min-width: 900px) { .moon-portrait, .about-moon { width: 320px !important; } }
-    .moon-portrait > img, .about-moon > img { object-position: center 30% !important; }
+    .about-moon > img { object-position: center 20% !important; }
     .moon-portrait > img, .about-moon > img { border-radius: 999px 999px 0 0 !important; }
     .moon-portrait::before, .about-moon::before { content: "" !important; position: absolute !important; z-index: -1 !important; left: 16px !important; top: 16px !important; right: -16px !important; bottom: -16px !important; width: auto !important; aspect-ratio: auto !important; border-radius: 999px 999px 0 0 !important; background: #C9885A !important; }
     .moon-portrait .twinkle, .about-moon .star-deco { display: none; }
+
+    /* hero: the circle photo as a soft faded background behind the opening text */
+    .hero { overflow-x: visible !important; min-height: min(88vh, 760px); align-content: center; grid-template-columns: 1fr !important; isolation: isolate; }
+    .hero-bg { position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(50% - 50vw); width: 100vw; overflow: hidden; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
+    .hero-bg::after { content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,248,239,1) 0%, rgba(255,248,239,.82) 14%, rgba(255,248,239,.8) 55%, rgba(255,248,239,.45) 82%, rgba(255,248,239,.95) 100%); }
+    @media (min-width: 760px) {
+      .hero-bg img { object-position: center 15%; }
+      .hero-bg::after { background: linear-gradient(90deg, rgba(255,248,239,.95) 0%, rgba(255,248,239,.85) 38%, rgba(255,248,239,.35) 75%, rgba(255,248,239,.2) 100%), linear-gradient(0deg, rgba(255,248,239,1) 0%, rgba(255,248,239,0) 18%), linear-gradient(180deg, rgba(255,248,239,1) 0%, rgba(255,248,239,0) 14%); }
+    }
   </style>
 </head>
 <body>
@@ -399,18 +410,16 @@
 <main id="top">
 
   <section class="hero">
+    <picture class="hero-bg" aria-hidden="true">
+      <source media="(min-width: 760px)" srcset="hero-circle-wide.jpg" />
+      <img src="hero-circle-tall.jpg" alt="" />
+    </picture>
     <div class="dust" aria-hidden="true"><svg class="star"><use href="#star"/></svg><svg class="star"><use href="#star"/></svg><svg class="star"><use href="#star"/></svg><svg class="star"><use href="#star"/></svg></div>
     <div class="hero-copy">
       <h1>alex faraday</h1>
       <p class="role">space holder · retreat leader · community builder</p>
       <p class="statement"><span>cacao circles &amp; retreats</span> <span>for women who are done pretending</span> <span>they're not weirdly human.</span></p>
       <p class="promise">safe, sacred spaces to be fully, unapologetically yourself.</p>
-    </div>
-    <div class="moon-portrait">
-      <img src="about-garden.jpg" alt="alex smiling in a green garden" />
-      <svg class="twinkle twinkle--a star" aria-hidden="true"><use href="#star"/></svg>
-      <svg class="twinkle twinkle--b star" aria-hidden="true"><use href="#star"/></svg>
-      <svg class="twinkle twinkle--c star" aria-hidden="true"><use href="#star"/></svg>
     </div>
   </section>
 
@@ -542,7 +551,7 @@
   <section class="about" aria-labelledby="about-title">
     <div class="about-inner">
       <div class="about-moon">
-        <img src="about-garden.jpg" alt="alex smiling in a green garden" />
+        <img src="about-circle.jpg" alt="alex sitting on a cushion, holding space in a cacao circle" />
         <svg class="star-deco star" aria-hidden="true"><use href="#star"/></svg>
       </div>
       <div class="about-text">
