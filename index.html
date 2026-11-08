@@ -124,6 +124,7 @@
     .statement span:nth-child(1) { animation-delay: .3s; }
     .statement span:nth-child(2) { animation-delay: 1s; }
     .statement span:nth-child(3) { animation-delay: 1.7s; }
+    .statement span:nth-child(4) { animation-delay: 2.4s; }
     .promise {
       font: italic 400 clamp(1.4rem, 3.8vw, 2rem)/1.2 var(--ff-display);
       font-variation-settings: "SOFT" 50, "WONK" 0;
@@ -384,8 +385,13 @@
     .hero-bg::after { content: ""; position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(255,248,239,1) 0%, rgba(255,248,239,.82) 14%, rgba(255,248,239,.8) 55%, rgba(255,248,239,.45) 82%, rgba(255,248,239,.95) 100%); }
     @media (min-width: 760px) {
-      .hero-bg img { object-position: center 15%; }
-      .hero-bg::after { background: linear-gradient(90deg, rgba(255,248,239,.95) 0%, rgba(255,248,239,.85) 38%, rgba(255,248,239,.35) 75%, rgba(255,248,239,.2) 100%), linear-gradient(0deg, rgba(255,248,239,1) 0%, rgba(255,248,239,0) 18%), linear-gradient(180deg, rgba(255,248,239,1) 0%, rgba(255,248,239,0) 14%); }
+      /* photo sits on the right two-thirds so more of the circle shows, fading softly into the text side */
+      .hero-bg { left: auto; right: calc(50% - 50vw); width: 66vw; }
+      .hero-bg img { object-position: center 40%; }
+      .hero-bg::after { background:
+        linear-gradient(90deg, rgba(255,248,239,1) 0%, rgba(255,248,239,.6) 22%, rgba(255,248,239,.12) 50%, rgba(255,248,239,0) 100%),
+        linear-gradient(0deg, rgba(255,248,239,1) 0%, rgba(255,248,239,0) 14%),
+        linear-gradient(180deg, rgba(255,248,239,1) 0%, rgba(255,248,239,0) 10%); }
     }
   </style>
 </head>
@@ -418,7 +424,7 @@
     <div class="hero-copy">
       <h1>alex faraday</h1>
       <p class="role">space holder · retreat leader · community builder</p>
-      <p class="statement"><span>cacao circles &amp; retreats</span> <span>for women who are done pretending</span> <span>they're not weirdly human.</span></p>
+      <p class="statement"><span>cacao circles &amp; retreats</span> <span>for women who are</span> <span>done pretending</span> <span>they're not weirdly human.</span></p>
       <p class="promise">safe, sacred spaces to be fully, unapologetically yourself.</p>
     </div>
   </section>
