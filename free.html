@@ -240,12 +240,19 @@
     .gift-line div { color: var(--muted); }
     .gift-line b { display: block; font: 500 1.35rem/1.15 var(--ff-display); font-variation-settings: "SOFT" 50, "WONK" 0; color: var(--ink); }
 
-    .claim { margin-top: 1.8rem; display: grid; gap: 0.8rem; }
-    /* each claim button matches its gift's bullet */
-    .btn--pink { background: var(--pink); color: #fff; }
-    .btn--pink:hover { background: #C93D7A; }
-    .btn--soft { background: var(--blush); color: var(--ink); }
-    .btn--soft:hover { background: #EBB4A1; }
+    /* gift picker: each chip matches its gift's bullet, tap to pick or unpick */
+    .gift-pick { display: grid; gap: 0.7rem; margin-bottom: 1.6rem; }
+    .pick { position: relative; display: flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 54px; padding: 0.7rem 1.4rem; border-radius: 999px; font-weight: 500; cursor: pointer; transition: opacity .2s, transform .2s var(--ease); }
+    .pick input { position: absolute; opacity: 0; pointer-events: none; }
+    .pick--pink { background: var(--pink); color: #fff; }
+    .pick--soft { background: var(--blush); color: var(--ink); }
+    .pick .tick { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor; font-size: 0.8rem; line-height: 1; }
+    .pick:has(input:not(:checked)) { opacity: 0.45; }
+    .pick:has(input:not(:checked)) .tick { color: transparent; border-color: currentColor; }
+    .pick--pink:has(input:not(:checked)) .tick { border-color: #fff; }
+    .pick--soft:has(input:not(:checked)) .tick { border-color: var(--ink); }
+    .pick:has(input:focus-visible) { outline: 3px solid var(--terra); outline-offset: 3px; }
+    .pick:active { transform: scale(.98); }
     .sign { margin-top: 1.8rem; }
     .line-field { display: block; margin-bottom: 1.3rem; }
     .line-field span { display: block; font-size: 0.88rem; font-weight: 700; }
@@ -382,13 +389,25 @@
             <p>two gifts, free and forever yours:</p>
             <div class="gift-line"><span class="dot"><svg class="star"><use href="#star"/></svg></span><div><b>the grounding</b>a guided meditation to get you out of your head and back into your body. come back to it whenever you need.</div></div>
             <div class="gift-line"><span class="dot"><svg class="star"><use href="#star"/></svg></span><div><b>the cacao spirit</b>my guide to working with ceremonial cacao and preparing for ceremony.</div></div>
-            <p>tap a gift to claim it. it's free, and it'll land straight in your inbox.</p>
+            <p>pick your gifts, pop in your details, and they'll land straight in your inbox.</p>
           </div>
 
-          <div class="claim">
-            <a class="btn btn--full btn--pink" href="https://checkout.mailerlite.com/checkout/30840" target="_blank" rel="noopener">claim the grounding</a>
-            <a class="btn btn--full btn--soft" href="https://checkout.mailerlite.com/checkout/30791" target="_blank" rel="noopener">claim the cacao spirit</a>
+          <form class="sign" data-ml="free">
+            <div class="gift-pick" role="group" aria-label="choose your gifts">
+              <label class="pick pick--pink"><input type="checkbox" data-form-id="203678669290341581" checked /><span class="tick" aria-hidden="true">✓</span>the grounding</label>
+              <label class="pick pick--soft"><input type="checkbox" data-form-id="203678670177437038" checked /><span class="tick" aria-hidden="true">✓</span>the cacao spirit</label>
+            </div>
+            <label class="line-field"><span>sign your first name</span><input class="signature" name="fields[name]" autocomplete="given-name" required /></label>
+            <label class="line-field"><span>your email</span><input type="email" name="fields[email]" autocomplete="email" required /></label>
+            <label class="consent"><input type="checkbox" required /> i'm happy to get emails from alex</label>
+            <button class="btn btn--full" type="submit">send my gifts</button>
+            <p class="form-error" role="alert">that didn't go through. pick at least one gift and check your email address.</p>
             <p class="from">alex x</p>
+          </form>
+          <div class="form-done" aria-live="polite">
+            <div class="stamp"><img src="favicon.svg" alt="" style="width:100%;height:100%" /></div>
+            <h2>on its way, <span data-name-out>lovely</span></h2>
+            <p>check your inbox and tap the link to confirm. your gifts will land straight after.</p>
           </div>
         </div>
       </article>
@@ -446,7 +465,7 @@
       seal.setAttribute('aria-expanded', 'true');
       setTimeout(function () {
         invite.classList.add('is-read');
-        var first = invite.querySelector('.letter input');
+        var first = invite.querySelector('.letter input[name="fields[name]"]');
         if (first) first.focus({ preventScroll: true });
       }, calm ? 0 : 1300);
     }

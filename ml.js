@@ -10,7 +10,7 @@ window.AF_MAILERLITE = {
   account: '1223322',
   forms: {
     ritual: '203517122569045693',   // "get future date reminders" -> THE RITUAL DATE REMINDER group
-    free:   '',   // not used: the free gifts page links straight to the two product checkouts
+    free:   '',   // the free gifts page picks its forms from the ticked gifts (data-form-id)
     join:   '203517348352624519'    // the inner circle newsletter -> ALL SUBSCRIBERS group
   },
   links: {
@@ -38,6 +38,12 @@ window.AF_MAILERLITE = {
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      // gift picker: send to the form of each ticked gift
+      var picks = form.querySelectorAll('[data-form-id]');
+      if (picks.length) {
+        ids = Array.prototype.filter.call(picks, function (p) { return p.checked; }).map(function (p) { return p.dataset.formId; });
+        if (!ids.length) { box.classList.add('is-error'); return; }
+      }
       if (!ids.length) { window.location.href = cfg.links[key + 'Fallback']; return; }
 
       var label = btn.textContent;
