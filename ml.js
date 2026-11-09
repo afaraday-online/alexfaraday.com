@@ -11,7 +11,8 @@ window.AF_MAILERLITE = {
   forms: {
     ritual: '203517122569045693',   // "get future date reminders" -> THE RITUAL DATE REMINDER group
     free:   '',   // the free gifts page picks its forms from the ticked gifts (data-form-id)
-    join:   '203517348352624519'    // the inner circle newsletter -> ALL SUBSCRIBERS group
+    join:   '203517348352624519',   // the inner circle newsletter -> ALL SUBSCRIBERS group
+    booked: '203680441724569118'    // after paying on stripe -> THE RITUAL 29/11/26 group (starts the booking emails). new ritual date = new form id here
   },
   links: {
     ritualCheckout: 'https://book.stripe.com/14A14mbkicZd4uI6iW2Fa0j',

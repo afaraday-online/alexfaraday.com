@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>you're booked · the ritual · alex faraday</title>
+  <meta name="description" content="one last step to get your zoom link for the ritual." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.ico?v=3" sizes="any" />
+  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml" />
+  <link rel="icon" href="favicon-512.png?v=3" type="image/png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="pages.css?v=4" />
+  <style>
+    .booked { display: grid; gap: 2.5rem; padding-block: 1.5rem 4.5rem; align-items: start; }
+    @media (min-width: 900px) { .booked { grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: 4.5rem; padding-block: 3rem 6rem; } }
+    .paid { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; font-weight: 500; padding: 0.35rem 1.1rem; border-radius: 999px; background: #E6EFDF; color: #3F5F33; margin-bottom: 1.2rem; }
+    .last-step { margin-top: 1.6rem; background: #FBEBDD; border-left: 4px solid var(--band); border-radius: 0 16px 16px 0; padding: 1.2rem 1.4rem; max-width: 32rem; }
+    .last-step h2 { font-size: 1.6rem; margin-bottom: 0.4rem; color: var(--main); font-style: normal; }
+    .last-step p { color: var(--ink); }
+    .signup h3 .step { display: block; font-family: var(--ff-body); font-size: 0.82rem; letter-spacing: 0.12em; color: var(--band); margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body class="p-ritual">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="topbar">
+    <a href="index.html" aria-label="alex faraday home"><img src="alex-faraday-symbol.svg" alt="" /></a>
+    <a href="https://www.instagram.com/alexfaraday_/" target="_blank" rel="noopener">@alexfaraday_</a>
+  </header>
+
+  <main class="booked">
+    <div>
+      <span class="paid">✓ payment received</span>
+      <h1>you're booked!</h1>
+      <p class="lead">thank you for booking the ritual. i can't wait to sit with you on sunday 29 november.</p>
+      <div class="last-step">
+        <h2>one last step</h2>
+        <p><strong>pop your name and email in here so i can send you your zoom link.</strong> this is how your confirmation and joining details reach you. if you skip it, your link won't arrive.</p>
+      </div>
+    </div>
+
+    <div class="signup" style="justify-self: center; width: 100%">
+      <div class="signup-inner">
+        <form data-ml="booked">
+          <h3><span class="step">STEP 2 OF 2</span>where shall i send your zoom link?</h3>
+          <div class="field"><label for="b-name">first name</label><input id="b-name" name="fields[name]" autocomplete="given-name" required /></div>
+          <div class="field"><label for="b-email">email</label><input id="b-email" type="email" name="fields[email]" autocomplete="email" required /></div>
+          <label class="consent"><input type="checkbox" required /> i'm happy to get emails from alex about the ritual</label>
+          <button class="btn btn--full" type="submit">send my zoom link</button>
+          <p class="form-error" role="alert">that didn't go through. check your email address and try again.</p>
+        </form>
+        <div class="form-done" aria-live="polite">
+          <h3>you're all set, <span data-name-out>lovely</span></h3>
+          <p>your confirmation is on its way now. your zoom link will land in your inbox the evening before we gather. see you there x</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <img src="alex-faraday-symbol.svg" alt="" />
+  <p>© 2026 alex faraday &nbsp;·&nbsp; <a href="index.html">alexfaraday.com</a></p>
+</footer>
+
+<script src="ml.js"></script>
+</body>
+</html>
